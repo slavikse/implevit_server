@@ -2,11 +2,14 @@ const Koa = require('koa');
 const app = new Koa();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
+const serve = require('koa-static');
 
 // todo что нужно для https/wss
 
 // todo ???
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+app.use(serve('/game_server/implevit/docs/'));
 
 const datas = {};
 let id = 0;
