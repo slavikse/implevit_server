@@ -1,7 +1,7 @@
 const Koa = require('koa');
 const app = new Koa();
-const https = require('https').createServer(app);
-const io = require('socket.io')(https);
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -44,6 +44,6 @@ process.on('uncaughtException', (err) => {
   console.error(`uncaughtException: ${err}`);
 });
 
-https.listen(3000, () => {
+http.listen(3000, () => {
   console.log('listening on :3000');
 });
