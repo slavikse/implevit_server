@@ -6,8 +6,8 @@
   "scripts": {
     "start": "nodemon ./server.js",
     "Команды к выполнению на сервере": "Подключение к серверу, обновление и запуск проекта.",
-    "ssh": "ssh ",
-    "Выполнить": "cd game_server && npm run clean && git pull && npm i && npm run pm2",
+    "ssh": "ssh root@195.133.197.93",
+    "Выполнить вручную": "cd game_server && npm run clean && git pull && npm i && npm run pm2",
     "clean": "rm -rf ./node_modules ./package-lock.json",
     "pm2": "pm2 kill && pm2 start ./server.js"
   },
