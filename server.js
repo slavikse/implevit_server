@@ -6,11 +6,6 @@ const serve = require('koa-static');
 
 // todo что нужно для https/wss
 
-// todo ???
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
-app.use(serve('/game_server/implevit/docs/'));
-
 const datas = {};
 let id = 0;
 let timestamp = 0;
@@ -51,5 +46,11 @@ process.on('uncaughtException', (err) => {
 });
 
 http.listen(3000, () => {
-  console.log('listening on :3000');
+  console.log('http listening on :3000');
+});
+
+app.use(serve('docs'));
+
+app.listen(5000, () => {
+  console.log('app listening on :5000');
 });
