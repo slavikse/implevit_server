@@ -3,6 +3,8 @@ const app = new Koa();
 const https = require('https').createServer(app);
 const io = require('socket.io')(https);
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const datas = {};
 let id = 0;
 let timestamp = 0;
