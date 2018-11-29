@@ -1,7 +1,7 @@
 const Koa = require('koa');
 const app = new Koa();
-const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const https = require('https').createServer(app);
+const io = require('socket.io')(https);
 
 const datas = {};
 let id = 0;
