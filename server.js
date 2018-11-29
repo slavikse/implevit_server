@@ -3,6 +3,9 @@ const app = new Koa();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
+// todo что нужно для https/wss
+
+// todo ???
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const datas = {};
