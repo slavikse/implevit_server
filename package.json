@@ -1,23 +1,21 @@
 {
   "name": "game_server",
-  "version": "1.0.1",
-  "description": "Простой сервер для общения игроков между собой.",
-  "main": "server.js",
+  "version": "0.0.2",
+  "description": "Сервер для обмена информацией между клиентами.",
+  "main": "./src",
   "scripts": {
-    "start": "nodemon ./server.js",
+    "serve": "nodemon ./src",
     "Команды к выполнению на сервере": "Подключение к серверу, обновление и запуск проекта.",
     "ssh": "ssh root@195.133.197.93",
-    "Выполнить вручную": "cd game_server && npm run clean && git pull && npm i && npm run pm2",
+    "Выполнить вручную": "cd game_server && npm run service && npm run server",
+    "service": "npm run clean && git pull && npm i",
     "clean": "rm -rf ./node_modules ./package-lock.json",
-    "pm2": "pm2 kill && pm2 start ./server.js"
+    "server": "pm2 kill && pm2 start ./src"
   },
   "engines": {
     "node": "10.13.0",
     "npm": "6.4.1"
   },
-  "keywords": [
-    "implevit"
-  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/slavikse/game_server.git"

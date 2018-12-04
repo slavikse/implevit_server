@@ -49,8 +49,8 @@ http.listen(3000, () => {
   console.log('http listening on :3000');
 });
 
-app.use(serve('docs'));
+app.use(serve('public'));
 
-app.listen(5000, () => {
-  console.log('app listening on :5000');
+app.listen(9000, () => {
+  console.log('app listening on :9000');
 });
