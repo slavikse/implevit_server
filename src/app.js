@@ -3,13 +3,8 @@ const app = new Koa();
 const http = require('http');
 const socketIO = require('socket.io');
 
-const cors = require('@koa/cors');
 const serve = require('koa-static');
-const compress = require('koa-compress');
-const zlib = require('zlib');
-const logger = require('koa-logger');
-
-// todo https://github.com/Jackong/koa-mongoose
+app.use(serve('public'));
 
 // const isDevelopment = app.env === 'development';
 const staticPort = 9000;
@@ -23,15 +18,6 @@ const clients = {};
 let id = 0;
 let tick = 0;
 
-app.use(cors());
-app.use(serve('public'));
-app.use(compress({ threshold: 1024, flush: zlib.Z_SYNC_FLUSH }));
-app.use(logger());
-
-app.on('error', (err) => console.error('server error', err));
-process.on('uncaughtException', (err) => console.error(`uncaughtException: ${err}`));
-
-// todo ПРОСТОЙ СЕРВЕР.
 // todo отключенные не уходят.
 // todo лучше был бы Broadcasting
 // todo нужно задавать частоту обновления для клиентов на сервере (не по событию от клиентов).
@@ -43,24 +29,32 @@ io.on('connection', (socket) => {
 
   // Сервер выдает идентификатор.
   socket.emit('start', id);
-  socket.emit('event', clients);
+  // Рассылка всех данных клиентов всем подписчикам.
+  // todo рассылать только изменившихся
+  socket.emit('clients', clients);
 
-  socket.on('client', (data) => {
+  // todo тут проверять, изменены ли они?
+  // Клиент изменился и прислал новые данные.
+  socket.on('event', (data) => {
     tick += 1;
     clients[data.id] = { ...data, tick };
-    socket.emit('event', clients);
+
+    socket.emit('clients', clients);
   });
 
   // todo
-  socket.on('leave', (id) => {
-    console.log('leave', id);
-  });
-
-  // todo
-  socket.on('disconnect', (id) => {
-    console.log('disconnect id', id);
-  });
+  // socket.on('leave', (id) => {
+  //   console.log('leave', id);
+  // });
+  //
+  // // todo
+  // socket.on('disconnect', (id) => {
+  //   console.log('disconnect id', id);
+  // });
 });
+
+app.on('error', (err) => console.error('server error', err));
+process.on('uncaughtException', (err) => console.error(`uncaughtException: ${err}`));
 
 app.listen(staticPort, () => console.log(`Static Hosted Port :${staticPort}`));
 api.listen(apiPort, () => console.log(`API Listen Port :${apiPort}`));
