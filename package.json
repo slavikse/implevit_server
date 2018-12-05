@@ -1,14 +1,14 @@
 {
   "name": "game_server",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Сервер для обмена информацией между клиентами.",
   "main": "./src",
   "scripts": {
     "serve": "nodemon ./src",
     " ------------------------------- ": " ------------------------------- ",
     "Команды к выполнению на сервере": "Подключение к серверу, обновление и запуск проекта.",
-    "Подключение к серверу": "ssh root@195.133.197.93",
-    "Выполнить в ssh консоли": "cd game_server && npm run replace && npm run serve",
+    "Подключение к серверу": "ssh root@5.63.159.2",
+    "Выполнить в ssh консоли": "cd game_server && npm run replace && npm run start",
     "---------------------------------": "---------------------------------",
     "replace": "npm run clean && git pull && npm i",
     "clean": "rm -rf ./node_modules ./package-lock.json",
@@ -29,7 +29,8 @@
     "koa-static": "^5.0.0",
     "nodemon": "^1.18.7",
     "pm2": "^3.2.2",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/socket.io": "^2.1.0"

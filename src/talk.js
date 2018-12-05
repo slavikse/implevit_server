@@ -1,43 +1,61 @@
+// !!! ОСТОРОЖНО С ПЕРЕМЕННЫМИ !!!
+// Могут оказаться не тем, что ожидается.
+// Лучше по максимому использовать замыкание и мутации.
+
+// todo
+// Вещает всем - всех. Ничего не фильтруется. Не обновлённые - снова попадут в канал вещания.
+
+const uuid = require('uuid/v1');
+
+// Частота обновления сервера.
+const second = 1000;
+const desiredFPS = 60;
+const frequency = second / desiredFPS;
+
+// Структура хранения подключенных клиентов:
+// { clientId: { client, tick }, .. }
 const clients = {};
-// todo ?? описания
-let id = 0;
-let tick = 0;
 
-// todo отключенные не уходят.
-// todo лучше был бы Broadcasting
-// todo нужно задавать частоту обновления для клиентов на сервере (не по событию от клиентов).
-function connection(socket) {
-  console.log('client connected');
+// Новое соединение клиента.
+function connection(client) {
+  initialize(client);
 
-  clients[id] = {};
-  id += 1;
+  client.on('update', (data) => update(client, data));
+  client.on('disconnect', () => disconnect(client));
+}
 
-  // Сервер выдает идентификатор.
-  socket.emit('start', id);
-  // Рассылка всех данных клиентов всем подписчикам.
-  // todo рассылать только изменившихся
-  socket.emit('clients', clients);
+// Сервер выдает идентификатор новому клиенту при подключении.
+// Все подключенные клиенты будут отправлены новому при следующей итерации вещания.
+function initialize(client) {
+  // Идентификатор подключенного клиента.
+  const clientId = uuid();
+  // Итерация обновления клиента (может использоваться для определения изменений на клиенте).
+  const tick = clientId;
 
-  // todo тут проверять, изменены ли они?
-  // Клиент изменился и прислал новые данные.
-  socket.on('event', (data) => {
-    tick += 1;
-    clients[data.id] = { ...data, tick };
+  // В замыкании будет содержаться служебная информация.
+  client.clientId = clientId;
+  client.tick = tick;
 
-    socket.emit('clients', clients);
-  });
+  client.emit('connected', clientId);
+}
 
-  // todo
-  // socket.on('leave', (id) => {
-  //   console.log('leave', id);
-  // });
-  //
-  // // todo
-  // socket.on('disconnect', (id) => {
-  //   console.log('disconnect id', id);
-  // });
+// Клиент обновил свою информацию.
+function update(client, data) {
+  clients[client.clientId] = { ...data, tick: uuid() };
+}
+
+// Клиент разорвал подключение.
+function disconnect(client) {
+  delete clients[client.clientId];
+}
+
+// Рассылка информации о клиентах всем подключенным.
+// Клиент самостоятельно исключает свою запись.
+function broadcast(io) {
+  setInterval(() => io.emit('clients', clients), frequency);
 }
 
 module.exports = (io) => {
   io.on('connection', connection);
+  broadcast(io);
 };
