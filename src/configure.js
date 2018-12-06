@@ -8,7 +8,7 @@ const api = http.createServer(app.callback());
 const io = socketIO(api);
 
 // const isDevelopment = app.env === 'development';
-const staticPort = 9000;
+const staticPort = 80;
 const apiPort = 3000;
 
 app.on('error', (err) => console.error('server error', err));

@@ -13,47 +13,89 @@ const desiredFPS = 60;
 const frequency = second / desiredFPS;
 
 // Структура хранения подключенных клиентов:
-// { clientId: { client, tick }, .. }
+// { clientId: { socket, data: { /* данные клиента */ } }, }
 const clients = {};
 
 // Новое соединение клиента.
-function connection(client) {
-  initialize(client);
+function connection(socket) {
+  // todo!!!
+  socket.isAlive = true;
+  socket.on('pong', () => {
+    console.log('pong');
+    socket.isAlive = true;
+  });
 
-  client.on('update', (data) => update(client, data));
-  client.on('disconnect', () => disconnect(client));
+  initialize(socket);
+
+  socket.on('update', (data) => update(socket, data));
+  socket.on('disconnect', () => disconnect(socket));
 }
 
-// Сервер выдает идентификатор новому клиенту при подключении.
+// todo а может лучше сразу?
 // Все подключенные клиенты будут отправлены новому при следующей итерации вещания.
-function initialize(client) {
+function initialize(socket) {
   // Идентификатор подключенного клиента.
   const clientId = uuid();
-  // Итерация обновления клиента (может использоваться для определения изменений на клиенте).
-  const tick = clientId;
+  socket.clientId = clientId;
 
-  // В замыкании будет содержаться служебная информация.
-  client.clientId = clientId;
-  client.tick = tick;
+  clients[clientId] = {
+    socket,
+    data: {
+      clientId,
+      tick: clientId,
+    },
+  };
 
-  client.emit('connected', clientId);
+  socket.emit('connected', clientId);
 }
 
 // Клиент обновил свою информацию.
-function update(client, data) {
-  clients[client.clientId] = { ...data, tick: uuid() };
+// tick - Итерация обновления клиента (может использоваться для определения изменений на клиенте).
+function update(socket, data) {
+  clients[data.clientId] = {
+    socket,
+    data: {
+      ...data,
+      tick: uuid(),
+    },
+  };
 }
 
 // Клиент разорвал подключение.
-function disconnect(client) {
-  delete clients[client.clientId];
+function disconnect(socket) {
+  console.log('disconnect');
+  delete clients[socket.clientId];
 }
 
 // Рассылка информации о клиентах всем подключенным.
 // Клиент самостоятельно исключает свою запись.
 function broadcast(io) {
-  setInterval(() => io.emit('clients', clients), frequency);
+  setInterval(() => {
+    // todo clients забирать только data
+    const data = Object.values(clients).reduce((acc, client) => {
+      acc[client.data.clientId] = client.data;
+      return acc;
+    }, {});
+
+    io.emit('clients', data);
+  }, frequency);
 }
+
+function checkAlive() {
+  Object.values(clients).forEach((client) => {
+    if (client.socket.isAlive) {
+      client.socket.isAlive = false;
+      client.socket.emit('ping');
+    } else {
+      console.log('disconnect !!!');
+      // client.socket.disconnect(true);
+    }
+  });
+}
+
+const checkAliveTime = 2 * second;
+// Периодически пропинговывает клиентов и закрывает повисшие соединения.
+setInterval(checkAlive, checkAliveTime);
 
 module.exports = (io) => {
   io.on('connection', connection);
