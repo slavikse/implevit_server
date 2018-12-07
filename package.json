@@ -1,6 +1,6 @@
 {
   "name": "game_server",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Сервер для обмена информацией между клиентами.",
   "main": "./src",
   "scripts": {
