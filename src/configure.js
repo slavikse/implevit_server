@@ -17,6 +17,6 @@ process.on('uncaughtException', (err) => console.error(`uncaughtException: ${err
 app.use(serve('public'));
 
 app.listen(staticPort, () => console.log(`Static Hosted Port :${staticPort}`));
-api.listen(apiPort, () => console.log(`API Listen Port :${apiPort}`));
+api.listen(apiPort, () => console.log(`API Listen Port    :${apiPort}`));
 
 module.exports = io;

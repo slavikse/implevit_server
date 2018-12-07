@@ -1,4 +1,4 @@
 const io = require('./configure');
-const talk = require('./talk');
+const broadcast = require('./broadcast');
 
-talk(io);
+broadcast(io);

@@ -1,6 +1,6 @@
 {
   "name": "game_server",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Сервер для обмена информацией между клиентами.",
   "main": "./src",
   "scripts": {
@@ -33,6 +33,6 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@types/socket.io": "^2.1.0"
+    "@types/socket.io": "^2.1.1"
   }
 }
