@@ -1,1 +1,3 @@
-require('./app.js');
+const { io, broadcast } = require('./service');
+
+broadcast(io);

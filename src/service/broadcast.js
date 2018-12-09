@@ -27,7 +27,7 @@ function connection(socket) {
   // Ожидание ответа клиента на tick через интервал времени, что он всё еще подключён.
   socket.on('tack', () => { socket.isAlive = true; });
 
-  socket.on('update', (payload) => update(socket, payload));
+  socket.on('update', payload => update(socket, payload));
   socket.on('disconnect', () => disconnect(socket));
 }
 
@@ -74,6 +74,7 @@ function informer(io) {
   io.emit('clients', clients);
 }
 
+// todo вынести в отдельный модуль
 // Раз в checkAliveTime проверяет отклик подключённых клиентов.
 function checkAlive() {
   Object.values(sockets).forEach((socket) => {
