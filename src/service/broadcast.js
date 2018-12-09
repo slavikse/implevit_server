@@ -7,6 +7,7 @@
 // todo рефакторинг
 
 const uuid = require('uuid/v1');
+const informer = require('./informer');
 const {
   checkAlive,
   performance,
@@ -72,20 +73,8 @@ function gameLoop(io) {
   setTimeout(gameLoop, frequency, io);
 
   const time = process.hrtime();
-  informer(io);
+  informer({ io, sockets });
   performance({ time, frequency });
-}
-
-// Рассылка информации о клиентах всем подключённым.
-// Клиент самостоятельно исключает собственную информацию.
-function informer(io) {
-  // Сбор только информации о клиентах.
-  const clients = Object.values(sockets).reduce((acc, socket) => {
-    acc[socket.clientId] = socket.payload;
-    return acc;
-  }, {});
-
-  io.emit('clients', clients);
 }
 
 // Периодически пропинговывает клиентов и закрывает повисшие соединения.
