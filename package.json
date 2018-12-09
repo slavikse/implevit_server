@@ -9,8 +9,7 @@
     "clean": "rm -rf ./node_modules ./package-lock.json",
     "start": "pm2 start pm2.json",
     "restart": "pm2 restart game_server",
-    "stop": "pm2 stop game_server",
-    "kill": "taskkill /F /IM node.exe"
+    "stop": "pm2 stop game_server"
   },
   "engines": {
     "node": "10.14.1",

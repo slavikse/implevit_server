@@ -7,3 +7,8 @@
 Подключение к серверу, обновление и запуск приложения.
 * Подключение к серверу: `ssh root@5.63.159.2`
 * Выполнить в ssh консоли: `cd game_server && npm run replace && npm restart`
+
+---
+
+##### Для windows:
+* taskkill /F /IM node.exe
