@@ -4,7 +4,10 @@
 // todo
 // Вещает всё - всем. Ничего не фильтруется. Не обновлённые - так же попадают в канал вещания.
 
+// todo рефакторинг
+
 const uuid = require('uuid/v1');
+const performance = require('./performance');
 
 // Частота обновления сервера.
 const second = 1000;
@@ -17,7 +20,15 @@ const sockets = {};
 
 function broadcast(io) {
   io.on('connection', connection);
-  setImmediate(() => informer(io), frequency);
+  gameLoop(io);
+}
+
+function gameLoop(io) {
+  setTimeout(gameLoop, frequency, io);
+
+  const time = process.hrtime();
+  informer(io);
+  performance({ time, frequency });
 }
 
 // Новое соединение клиента.
