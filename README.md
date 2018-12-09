@@ -10,5 +10,5 @@
 
 ---
 
-##### Для windows:
+### Для windows:
 * taskkill /F /IM node.exe
