@@ -1,7 +1,7 @@
-const io = require('./io');
 const broadcast = require('./broadcast');
+const io = require('./io');
 
 module.exports = {
-  io,
   broadcast,
+  io,
 };

@@ -1,11 +1,11 @@
 // Проверяет отклик подключённых клиентов.
-function checkAlive({ sockets, disconnect }) {
+function checkAlive({ sockets, clientDisconnect }) {
   Object.values(sockets).forEach((socket) => {
     if (socket.isAlive) {
       socket.isAlive = false;
       socket.emit('tick');
     } else {
-      disconnect(socket);
+      clientDisconnect(socket);
     }
   });
 }

@@ -1,7 +1,11 @@
-const checkAlive = require('./checkAlive');
 const performance = require('./performance');
 
+const checkAlive = require('./checkAlive');
+const checkAliveTack = require('./checkAliveTack');
+
 module.exports = {
-  checkAlive,
   performance,
+
+  checkAlive,
+  checkAliveTack,
 };

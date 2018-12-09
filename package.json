@@ -1,13 +1,13 @@
 {
   "name": "game_server",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "Сервер для обмена информацией между клиентами в 60fps.",
   "main": "./src",
   "scripts": {
     "serve": "nodemon --use-strict ./src",
     "replace": "npm run clean && git pull && npm i",
     "clean": "rm -rf ./node_modules ./package-lock.json",
-    "start": "pm2 start pm2.json",
+    "start": "pm2 start ./config/pm2.json",
     "restart": "pm2 restart game_server",
     "stop": "pm2 stop game_server"
   },
