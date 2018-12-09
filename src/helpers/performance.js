@@ -4,12 +4,10 @@ function performance({ time, frequency }) {
   const [, nanoseconds] = process.hrtime(time);
   const millisecondsDelay = nanoseconds / million;
 
-  if (millisecondsDelay >= frequency) {
-    // todo logger. проверить
+  if (millisecondsDelay > frequency) {
+    // Контроль временных выбросов.
     console.log('millisecondsDelay', millisecondsDelay);
   }
-
-  console.log('millisecondsDelay', millisecondsDelay);
 }
 
 module.exports = performance;

@@ -6,19 +6,11 @@ function listen({ app, api }) {
   api.listen(apiPort, apiListen);
 }
 
-function appListen(err) {
-  if (err) {
-    throw new Error(err);
-  }
-
+function appListen() {
   console.log(`Static Hosted Port: ${staticPort}`);
 }
 
-function apiListen(err) {
-  if (err) {
-    throw new Error(err);
-  }
-
+function apiListen() {
   console.log(`   API Listen Port: ${apiPort}`);
 }
 

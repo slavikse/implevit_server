@@ -7,7 +7,10 @@
 // todo рефакторинг
 
 const uuid = require('uuid/v1');
-const performance = require('./performance');
+const {
+  checkAlive,
+  performance,
+} = require('../helpers');
 
 // Частота обновления сервера.
 const second = 1000;
@@ -21,14 +24,6 @@ const sockets = {};
 function broadcast(io) {
   io.on('connection', connection);
   gameLoop(io);
-}
-
-function gameLoop(io) {
-  setTimeout(gameLoop, frequency, io);
-
-  const time = process.hrtime();
-  informer(io);
-  performance({ time, frequency });
 }
 
 // Новое соединение клиента.
@@ -68,9 +63,17 @@ function update(socket, payload) {
 }
 
 // Клиент разорвал соединение.
-// Оповещение об отключении клиента произойдёт при следующей итерации вещания всем оставшимся.
+// Оповещение об отключении клиента произойдёт на следующей итерации вещания.
 function disconnect(socket) {
   delete sockets[socket.clientId];
+}
+
+function gameLoop(io) {
+  setTimeout(gameLoop, frequency, io);
+
+  const time = process.hrtime();
+  informer(io);
+  performance({ time, frequency });
 }
 
 // Рассылка информации о клиентах всем подключённым.
@@ -85,21 +88,7 @@ function informer(io) {
   io.emit('clients', clients);
 }
 
-// todo вынести в отдельный модуль
-// Раз в checkAliveTime проверяет отклик подключённых клиентов.
-function checkAlive() {
-  Object.values(sockets).forEach((socket) => {
-    if (socket.isAlive) {
-      socket.isAlive = false;
-      socket.emit('tick');
-    } else {
-      disconnect(socket);
-    }
-  });
-}
-
-const checkAliveTime = 10 * second;
 // Периодически пропинговывает клиентов и закрывает повисшие соединения.
-setInterval(checkAlive, checkAliveTime);
+setInterval(checkAlive, 3 * second, { sockets, disconnect });
 
 module.exports = broadcast;
