@@ -1,9 +1,7 @@
 const initialize = require('./initialize');
 const clientUpdate = require('./clientUpdate');
 const clientDisconnect = require('./clientDisconnect');
-const { checkAlive, checkAliveTack } = require('../helpers');
-
-const second = 1000;
+const { clientPulse } = require('../helpers');
 
 // Настройка нового соединения клиента.
 function connection({ socket, sockets }) {
@@ -14,9 +12,7 @@ function connection({ socket, sockets }) {
   socket.on('update', payload => clientUpdate({ socket, sockets, payload }));
   socket.on('disconnect', () => clientDisconnect({ socket, sockets }));
 
-  // Периодически пропинговывает клиентов и закрывает повисшие соединения.
-  setInterval(checkAlive, 3 * second, { sockets, clientDisconnect });
-  checkAliveTack(socket);
+  clientPulse({ socket, sockets });
 }
 
 module.exports = connection;

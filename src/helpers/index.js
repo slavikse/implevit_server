@@ -1,11 +1,7 @@
 const performance = require('./performance');
-
-const checkAlive = require('./checkAlive');
-const checkAliveTack = require('./checkAliveTack');
+const clientPulse = require('./clientPulse');
 
 module.exports = {
   performance,
-
-  checkAlive,
-  checkAliveTack,
+  clientPulse,
 };
