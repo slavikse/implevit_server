@@ -2,6 +2,7 @@
 
 // https://github.com/venables/koa-helmet
 // https://github.com/turboMaCk/koa-sslify
+// https://socket.io/docs/server-api
 
 // const options = {
 //   key: getKeySomehow(),

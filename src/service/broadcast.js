@@ -17,7 +17,7 @@ const sockets = {};
 
 function broadcast(io) {
   io.on('connection', connection);
-  setInterval(() => informer(io), frequency);
+  setImmediate(() => informer(io), frequency);
 }
 
 // Новое соединение клиента.
