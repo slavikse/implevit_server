@@ -1,15 +1,10 @@
 {
   "name": "game_server",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Сервер для обмена информацией между клиентами в 60fps.",
   "main": "./src",
   "scripts": {
     "serve": "nodemon --use-strict ./src",
-    " ------------------------------- ": " ------------------------------- ",
-    "Команды к выполнению на сервере": "Подключение к серверу, обновление и запуск приложения.",
-    "Подключение к серверу": "ssh root@5.63.159.2",
-    "Выполнить в ssh консоли": "cd game_server && npm run replace && npm restart",
-    "---------------------------------": "---------------------------------",
     "replace": "npm run clean && git pull && npm i",
     "clean": "rm -rf ./node_modules ./package-lock.json",
     "start": "pm2 start pm2.json",
