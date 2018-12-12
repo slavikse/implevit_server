@@ -1,7 +1,7 @@
 const informer = require('./informer');
-const updateClient = require('./updateClient');
+const { client } = require('./update');
 
 module.exports = {
   informer,
-  updateClient,
+  client,
 };

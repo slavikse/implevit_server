@@ -1,9 +1,9 @@
-const { updateClient } = require('../service');
+const { client } = require('../service');
 
 function update(socket, { type, payload }) {
   switch (type) {
     case 'client':
-      updateClient(socket, payload);
+      client(socket, payload);
       break;
 
     default:
