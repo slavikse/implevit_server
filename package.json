@@ -1,6 +1,6 @@
 {
   "name": "game_server",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Сервер для обмена информацией между клиентами.",
   "main": "./src",
   "scripts": {
@@ -24,7 +24,6 @@
   "dependencies": {
     "koa": "^2.6.2",
     "koa-static": "^5.0.0",
-    "lodash.merge": "^4.6.1",
     "nodemon": "^1.18.8",
     "pm2": "^3.2.3",
     "socket.io": "^2.2.0",
