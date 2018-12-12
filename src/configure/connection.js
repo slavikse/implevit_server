@@ -1,14 +1,14 @@
-const { gameLoop, update } = require('../engine');
 const getConnectedClients = require('./getConnectedClients');
+const { gameLoop, update } = require('../engine');
 
 // Структура хранения подключённых клиентов:
 // io.sockets.connected = { id: socket }
 function connection(io) {
-  gameLoop(io);
-
   io.on('connection', (socket) => {
     connected(io, socket);
   });
+
+  gameLoop(io);
 }
 
 function connected(io, socket) {
