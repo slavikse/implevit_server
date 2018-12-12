@@ -1,7 +1,7 @@
-const broadcast = require('./broadcast');
-const io = require('./io');
+const informer = require('./informer');
+const updateClient = require('./updateClient');
 
 module.exports = {
-  broadcast,
-  io,
+  informer,
+  updateClient,
 };

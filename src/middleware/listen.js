@@ -1,17 +1,17 @@
-const staticPort = 80;
-const apiPort = 3000;
+const appPort = 80;
+const serverPort = 3000;
 
-function listen({ app, api }) {
-  app.listen(staticPort, appListen);
-  api.listen(apiPort, apiListen);
+function listen(app, server) {
+  app.listen(appPort, appListens);
+  server.listen(serverPort, serverListens);
 }
 
-function appListen() {
-  console.log(`Static Hosted Port: ${staticPort}`);
+function appListens() {
+  console.log(`Static Hosted Port: ${appPort}`);
 }
 
-function apiListen() {
-  console.log(`   API Listen Port: ${apiPort}`);
+function serverListens() {
+  console.log(`Server Listen Port: ${serverPort}`);
 }
 
 module.exports = listen;

@@ -1,16 +1,40 @@
 # Игровой сервер
-Сервер для обмена информацией между клиентами в 60fps.  
+Сервер для обмена информацией между клиентами.
 
-### Команды
-* Подключение  
-  `ssh root@5.63.159.2`
+## Документация API
+* Подключение к серверу:
+  ```js
+  connection.on('connected', ({ clientId }) => {
+    /* Где clientId - это идентификатор клиента. */
+  });
+  ```
 
-* Обновление  
-`cd game_server && npm run replace && npm restart`
+* Отправка информации для обновления:
+  ```js
+  connection.emit('update', {
+    type: 'client',
+    payload: {
+      /* Информация для обновления. */
+    },
+  });
+  ```
 
-* Мониторинг  
-`npx pm2 monit`
+* Подписка на обновление информации:
+  ```js
+  connection.on('updates', (updates) => {
+    /* updates - обновлённая информация. */
+  });
+  ```
 
-### Для windows
-* Остановка всех node процессов  
-`taskkill /F /IM node.exe`
+* Подписка на получение идентификатора отключившегося:
+  ```js
+  connection.on('disconnected', ({ clientId }) => {
+    /* clientId - идентификатор отключившегося. */
+  });
+  ```
+
+## Лицензия
+
+[MIT](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2018-present, Лебедев Вячеслав
