@@ -8,9 +8,9 @@
     "restart": "npm run stop && npm run get && npm run apps && npm run start",
     "stop": "pm2 stop game_server",
     "ОСТОРОЖНО! get!": "Предназначено для запуска только на удалённом сервере.",
-    "get": "rimraf ** && git clone https://github.com/slavikse/game_server.git . && npm i",
+    "get": "rm -rf game_server && git clone https://github.com/slavikse/game_server.git && cd game_server && npm i",
     "apps": "npm run implevit",
-    "implevit": "cd apps/implevit && npm start",
+    "implevit": "cd apps/implevit && npm i && rm -rf app && git clone https://github.com/slavikse/implevit.git app && cd app && npm start",
     "start": "pm2 start ./config/pm2.json"
   },
   "engines": {
@@ -34,7 +34,6 @@
     "@types/socket.io": "^2.1.2",
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "rimraf": "^2.6.2"
+    "eslint-plugin-import": "^2.14.0"
   }
 }
