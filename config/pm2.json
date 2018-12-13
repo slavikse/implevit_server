@@ -2,16 +2,14 @@
   "apps": [
     {
       "name": "game_server",
-      "script": "./src",
+      "script": "src",
       "node_args": "--use-strict",
-      "merge_logs": true,
       "env": {"NODE_ENV": "production"}
     },
     {
       "name": "implevit",
-      "script": "./apps/implevit",
+      "script": "apps/implevit",
       "node_args": "--use-strict",
-      "merge_logs": true,
       "env": {"NODE_ENV": "production"}
     }
   ]

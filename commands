@@ -13,6 +13,7 @@ ssh root@5.63.159.2
 
 3. Мониторинг:
 npx pm2 monit
+npx pm2 logs
 
 
 Остановка всех процессов для windows:
