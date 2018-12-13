@@ -4,8 +4,7 @@
   "description": "Сервер для обмена информацией между клиентами.",
   "main": "./src",
   "scripts": {
-    "serve": "nodemon --use-strict ./src",
-    "restart": "pm2 kill && pm2 start ./config/pm2.json"
+    "serve": "nodemon --use-strict ./src"
   },
   "engines": {
     "node": "10.14.1",

@@ -1,12 +1,15 @@
 1. Подключение:
 ssh root@5.63.159.2
 
-2. Запуски (по очереди):
+2. Выполнить команды по очереди:
   2.1. game_server
   rm -rf game_server && git clone https://github.com/slavikse/game_server.git && cd game_server && npm i
 
   2.2. implevit
-  cd apps/implevit && npm i && rm -rf app && git clone https://github.com/slavikse/implevit.git app && cd app && npm i && npm run build
+  cd apps/implevit && npm i && git clone https://github.com/slavikse/implevit.git app && cd app && npm i && npm run build
+
+  2.3 Запуск сервера
+  cd ~/game_server && npx pm2 kill && npx pm2 start ./config/pm2.json
 
 3. Мониторинг:
 npx pm2 monit
