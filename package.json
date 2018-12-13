@@ -8,7 +8,8 @@
     "restart": "npm run stop && npm run get && npm run apps && npm run start",
     "stop": "pm2 stop game_server",
     "ОСТОРОЖНО! update!": "Предназначено для запуска только на удалённом сервере.",
-    "get": "rm -rf .[^.]* ..?* ** && git clone https://github.com/slavikse/game_server.git . && npm i",
+    "get": "npm run clear && git clone https://github.com/slavikse/game_server.git . && npm i",
+    "clear": "rm -rf .[^.]* ..?* **",
     "apps": "npm run implevit",
     "implevit": "cd apps/implevit && npm start",
     "start": "pm2 start ./config/pm2.json"
