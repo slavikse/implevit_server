@@ -7,9 +7,8 @@
     "serve": "nodemon --use-strict ./src",
     "restart": "npm run stop && npm run get && npm run apps && npm run start",
     "stop": "pm2 stop game_server",
-    "ОСТОРОЖНО! update!": "Предназначено для запуска только на удалённом сервере.",
-    "get": "npm run clear && git clone https://github.com/slavikse/game_server.git . && npm i",
-    "clear": "rm -rf .[^.]* ..?* **",
+    "ОСТОРОЖНО! get!": "Предназначено для запуска только на удалённом сервере.",
+    "get": "rimraf ** && git clone https://github.com/slavikse/game_server.git . && npm i",
     "apps": "npm run implevit",
     "implevit": "cd apps/implevit && npm start",
     "start": "pm2 start ./config/pm2.json"
@@ -35,6 +34,7 @@
     "@types/socket.io": "^2.1.2",
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "rimraf": "^2.6.2"
   }
 }
