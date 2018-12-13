@@ -1,5 +1,3 @@
 const performance = require('./performance');
 
-module.exports = {
-  performance,
-};
+module.exports = { performance };
