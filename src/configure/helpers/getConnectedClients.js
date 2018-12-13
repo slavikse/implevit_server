@@ -2,6 +2,7 @@
 function getConnectedClients(io) {
   return Object.values(io.sockets.connected).reduce((acc, socket) => {
     acc[socket.id] = socket.payload;
+
     return acc;
   }, {});
 }

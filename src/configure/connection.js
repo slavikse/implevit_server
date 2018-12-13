@@ -1,4 +1,4 @@
-const getConnectedClients = require('./getConnectedClients');
+const { getConnectedClients } = require('./helpers');
 const { gameLoop, update } = require('../engine');
 
 // Структура хранения подключённых клиентов:

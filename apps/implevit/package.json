@@ -1,0 +1,16 @@
+{
+  "name": "implevit",
+  "version": "1.0.0",
+  "description": "Сборочный пункт игры.",
+  "main": "index.js",
+  "scripts": {
+    "start": "rimraf ./app/** && npm run update && cd app && npm i && npm run build",
+    "update": "git clone https://github.com/slavikse/implevit.git app"
+  },
+  "author": "slavikse <gslavikse@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-static": "^5.0.0"
+  }
+}
