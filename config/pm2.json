@@ -4,13 +4,17 @@
       "name": "game_server",
       "script": "src",
       "node_args": "--use-strict",
-      "env": {"NODE_ENV": "production"}
+      "env": {"NODE_ENV": "production"},
+      "instances": 1,
+      "exec_mode": "cluster",
+      "port": 3000
     },
     {
       "name": "implevit",
       "script": "apps/implevit",
       "node_args": "--use-strict",
-      "env": {"NODE_ENV": "production"}
+      "env": {"NODE_ENV": "production"},
+      "port": 80
     }
   ]
 }
