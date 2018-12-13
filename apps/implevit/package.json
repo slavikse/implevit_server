@@ -4,7 +4,7 @@
   "description": "Сборочный пункт игры.",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf ** && npm i && npm run get && cd app && npm i && npm run build",
+    "start": "rm -rf .[^.]* ..?* ** && npm i && npm run get && cd app && npm i && npm run build",
     "get": "git clone https://github.com/slavikse/implevit.git app"
   },
   "author": "slavikse <gslavikse@gmail.com>",
