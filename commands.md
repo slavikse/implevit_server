@@ -45,3 +45,6 @@ npx pm2 logs
 
 > Остановка всех процессов для windows:  
   taskkill /F /IM node.exe
+
+### Лицензия [MIT](http://opensource.org/licenses/MIT)
+Copyright (c) 2018-present, Лебедев Вячеслав
