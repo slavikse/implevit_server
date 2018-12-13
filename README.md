@@ -50,6 +50,7 @@
     /* clientId - идентификатор отключившегося. */
   });
   ```
+![client server architecture.png](https://raw.githubusercontent.com/slavikse/game_server/master/client%20server%20architecture.png)
 
 ### Лицензия [MIT](http://opensource.org/licenses/MIT)
 Copyright (c) 2018-present, Лебедев Вячеслав
