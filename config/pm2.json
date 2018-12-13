@@ -5,8 +5,6 @@
       "script": "src",
       "node_args": "--use-strict",
       "env": {"NODE_ENV": "production"},
-      "instances": 1,
-      "exec_mode": "cluster",
       "port": 3000
     },
     {
