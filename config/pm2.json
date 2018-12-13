@@ -8,9 +8,7 @@
     },
     {
       "name": "implevit",
-      "script": "apps/implevit",
-      "node_args": "--use-strict",
-      "env": {"NODE_ENV": "production"}
+      "script": "apps/implevit"
     }
   ]
 }
