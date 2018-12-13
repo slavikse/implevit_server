@@ -1,31 +1,42 @@
-1. Подключение:
-ssh root@5.63.159.2
+# Команды запуска
 
-2. Запуск:
-2.1. game_server:
+### Подключение
+```
+ssh root@5.63.159.2
+```
+
+### Game Server
+```
 cd ~ &&
 rm -rf game_server &&
 git clone https://github.com/slavikse/game_server.git &&
 cd game_server &&
 npm i
+```
 
-2.2. implevit:
+### Implevit
+```
 cd apps/implevit &&
 npm i &&
 git clone https://github.com/slavikse/implevit.git app &&
 cd app &&
 npm i &&
 npm run build
+```
 
-2.3 Запуск сервера:
+### Запуск сервера
+```
 cd ~/game_server &&
 npx pm2 kill &&
 npx pm2 start ./config/pm2.json
+```
 
-3. Мониторинг:
+### Мониторинг
+```
 npx pm2 monit
 npx pm2 logs
+```
 
 
-Остановка всех процессов для windows:
-taskkill /F /IM node.exe
+> Остановка всех процессов для windows:  
+  taskkill /F /IM node.exe
