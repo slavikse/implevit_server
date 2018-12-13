@@ -6,7 +6,7 @@ function performance(time, frequency) {
 
   if (millisecondsDelay > frequency) {
     // Контроль временнЫх выбросов.
-    console.log('millisecondsDelay', millisecondsDelay);
+    console.log('Milliseconds Delay:', millisecondsDelay);
   }
 }
 
