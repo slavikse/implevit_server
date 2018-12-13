@@ -2,7 +2,7 @@
 ssh root@5.63.159.2
 
 2. Обновление:
-cd game_server && npm run replace && npm run restart
+cd game_server && npm run update && npm run restart
 
 3. Мониторинг:
 npx pm2 monit
