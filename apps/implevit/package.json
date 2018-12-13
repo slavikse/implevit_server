@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Сборочный пункт игры.",
   "main": "index.js",
-  "scripts": {
-    "start": "npm i && npm run build"
-  },
   "author": "slavikse <gslavikse@gmail.com>",
   "license": "MIT",
   "dependencies": {
