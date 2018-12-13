@@ -1,7 +1,7 @@
-const { getConnectedClients } = require('../helpers');
+const { getClients } = require('./helpers');
 
 function publisher(io, socket) {
-  const clients = getConnectedClients(io);
+  const clients = getClients(io);
 
   io.emit('connected', {
     clientId: socket.id,

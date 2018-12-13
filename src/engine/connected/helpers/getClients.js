@@ -1,5 +1,5 @@
 // Получение информации о всех подключённых.
-function getConnectedClients(io) {
+function getClients(io) {
   return Object.values(io.sockets.connected).reduce((acc, socket) => {
     acc[socket.id] = socket.payload;
 
@@ -7,4 +7,4 @@ function getConnectedClients(io) {
   }, {});
 }
 
-module.exports = getConnectedClients;
+module.exports = getClients;

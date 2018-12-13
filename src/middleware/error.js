@@ -4,7 +4,7 @@ function error(app) {
   });
 
   process.on('uncaughtException', (err) => {
-    console.error(`UNCAUGHT EXCEPTION: ${err}`);
+    console.error('UNCAUGHT EXCEPTION', err);
   });
 }
 

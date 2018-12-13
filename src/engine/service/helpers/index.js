@@ -1,5 +1,3 @@
 const getUpdates = require('./getUpdates');
 
-module.exports = {
-  getUpdates,
-};
+module.exports = { getUpdates };

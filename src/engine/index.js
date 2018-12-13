@@ -1,7 +1,4 @@
+const { publisher, subscriber } = require('./connected');
 const gameLoop = require('./gameLoop');
-const update = require('./update');
 
-module.exports = {
-  gameLoop,
-  update,
-};
+module.exports = { publisher, subscriber, gameLoop };

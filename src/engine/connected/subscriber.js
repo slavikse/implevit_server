@@ -1,4 +1,4 @@
-const { update } = require('../../engine');
+const update = require('./update');
 
 function subscriber(socket) {
   socket.on('update', (data) => {

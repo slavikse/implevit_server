@@ -1,5 +1,3 @@
 const connection = require('./connection');
 
-module.exports = {
-  connection,
-};
+module.exports = { connection };

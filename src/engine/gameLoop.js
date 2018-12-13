@@ -1,4 +1,4 @@
-const { informer } = require('../service');
+const { informer } = require('./service');
 const { performance } = require('../helpers');
 
 // Частота обновления сервера.
