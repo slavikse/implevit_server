@@ -8,3 +8,4 @@ function client(socket, payload) {
 module.exports = client;
 
 // todo баг, при подключении клиента:
+// todo уже подключённый клиент не получает вновь пришедшего.
