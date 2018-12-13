@@ -5,7 +5,7 @@
 ssh root@5.63.159.2
 ```
 
-### Game Server
+### Обновление Game Server
 ```
 cd ~ &&
 rm -rf game_server &&
@@ -14,7 +14,7 @@ cd game_server &&
 npm i
 ```
 
-### Implevit
+### Сборка игры Implevit
 ```
 cd apps/implevit &&
 npm i &&
@@ -24,14 +24,14 @@ npm i &&
 npm run build
 ```
 
-### Запуск сервера
+### Запуск всех приложений
 ```
 cd ~/game_server &&
 npx pm2 kill &&
 npx pm2 start ./config/pm2.json
 ```
 
-### Мониторинг
+### Статистика
 ```
 npx pm2 monit
 npx pm2 logs
