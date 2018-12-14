@@ -6,7 +6,9 @@ const { getClients } = require('./helpers');
 // 2. Клиент: Отправляет инициализирующую информацию.
 // 3. Сервер: Отправляет полную информацию о всех подключённых.
 function publisher(io, socket) {
-  io.emit('connected', { clientId: socket.id });
+  io.emit('connected', {
+    clientId: socket.id,
+  });
 
   socket.once('connected', (payload) => {
     client(socket, payload);

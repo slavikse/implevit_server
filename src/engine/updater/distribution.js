@@ -1,6 +1,5 @@
 const { getUpdates } = require('./helpers');
 
-// Отправляется вся информация включая текущего подключённого.
 function distribution(io) {
   const updates = getUpdates(io);
 

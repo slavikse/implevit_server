@@ -1,6 +1,6 @@
 const uuid = require('uuid/v1');
 
-// Обновляет предыдущую информацию новой.
+// Сервер хранит полную информацию о подключённых клиентах.
 function client(socket, payload) {
   socket.payload = {
     ...socket.payload,
