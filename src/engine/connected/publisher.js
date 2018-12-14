@@ -1,11 +1,18 @@
-const uuid = require('uuid/v1');
+const { client } = require('../updater');
 const { getClients } = require('./helpers');
 
 // Стратегия при подключении клиента:
+// 0. Инициализация хранилища, для определения обновлённой информации.
 // 1. Сервер: Выдаёт идентификатор.
 // 2. Клиент: Отправляет инициализирующую информацию.
 // 3. Сервер: Отправляет полную информацию о всех подключённых.
 function publisher(io, socket) {
+  // Одноуровневый контроллер обновлённой информации.
+  // ex: [контроль_обновления_данных_под_этим_ключом]: { [но_не_вложенного_ключа]: { } }
+  // Помечать { [key]: true } при обновлении информации, где key - это ключ передаваемой информации.
+  // При отправке будет фильтроваться по этому ключу, чтобы исключить не обновлённую информацию.
+  socket.isUpdates = {};
+
   io.emit('connected', {
     clientId: socket.id,
   });
@@ -14,15 +21,6 @@ function publisher(io, socket) {
     client(socket, payload);
     updates(io);
   });
-}
-
-function client(socket, payload) {
-  socket.payload = {
-    ...payload,
-    tick: uuid(),
-  };
-
-  socket.isUpdated = true;
 }
 
 function updates(io) {

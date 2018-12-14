@@ -1,4 +1,4 @@
-const update = require('./update');
+const { update, client } = require('./update');
 const distribution = require('./distribution');
 
-module.exports = { update, distribution };
+module.exports = { update, client, distribution };

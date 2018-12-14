@@ -11,4 +11,4 @@ function update(socket, { type, payload }) {
   }
 }
 
-module.exports = update;
+module.exports = { update, client };
