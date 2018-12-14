@@ -1,4 +1,4 @@
-const { client } = require('../service');
+const client = require('./client');
 
 function update(socket, { type, payload }) {
   switch (type) {

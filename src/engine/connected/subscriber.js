@@ -1,4 +1,4 @@
-const update = require('./update');
+const { update } = require('../updater');
 
 function subscriber(socket) {
   socket.on('update', (data) => {

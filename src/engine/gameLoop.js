@@ -1,4 +1,4 @@
-const { informer } = require('./service');
+const { distribution } = require('./updater');
 const { performance } = require('../helpers');
 
 // Частота обновления сервера.
@@ -8,7 +8,7 @@ function gameLoop(io) {
   setTimeout(gameLoop, frequency, io);
 
   const time = process.hrtime();
-  informer(io);
+  distribution(io);
   performance(time, frequency);
 }
 
