@@ -1,5 +1,6 @@
-const { publisher, subscriber } = require('../connected');
-const gameLoop = require('../gameLoop');
+const publisher = require('./publisher');
+const subscriber = require('./subscriber');
+const gameLoop = require('./gameLoop');
 
 // Структура хранения подключённых клиентов:
 // io.sockets.connected = { id: socket }

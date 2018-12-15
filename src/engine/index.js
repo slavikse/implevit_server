@@ -1,3 +1,3 @@
-const { connection } = require('./configure');
+const { connection } = require('./setup');
 
 module.exports = { connection };
