@@ -2,28 +2,28 @@ const uuid = require('uuid/v1');
 
 // Получение (зависит от клиента) / Отправка (гарантирует сервер) обновлённой клиентской информации.
 function getUpdates(io) {
-  return Object.values(io.sockets.connected).reduce((acc, socket) => {
-    const keys = Object.keys(socket.isUpdates);
+  return Object.values(io.sockets.connected).reduce((updates, socket) => {
+    const updatedKeys = Object.keys(socket.isUpdates);
 
-    keys.forEach((key) => {
-      mergeWithUpdate({ acc, socket, key });
+    updatedKeys.forEach((key) => {
+      if (socket.isUpdates[key]) {
+        socket.isUpdates[key] = false;
+
+        mergeWithUpdated({ updates, socket, key });
+      }
     });
 
-    return acc;
+    return updates;
   }, {});
 }
 
-function mergeWithUpdate({ acc, socket, key }) {
-  if (socket.isUpdates[key]) {
-    socket.isUpdates[key] = false;
-
-    // Точечный (по ключу) сбор состояния обновлённой клиентской информации.
-    acc[socket.id] = {
-      ...acc[socket.id],
-      [key]: socket.payload[key],
-      tick: uuid(),
-    };
-  }
+// Точечный (по ключу) сбор состояния обновлённой клиентской информации.
+function mergeWithUpdated({ updates, socket, key }) {
+  updates[socket.id] = {
+    ...updates[socket.id],
+    [key]: socket.payload[key],
+    tick: uuid(),
+  };
 }
 
 module.exports = getUpdates;
