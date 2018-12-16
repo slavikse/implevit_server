@@ -7,12 +7,14 @@ ssh root@5.63.159.2
 
 ### Объединённая команда запуска
 ```
-cd ~ && rm -rf game_server && git clone https://github.com/slavikse/game_server.git && cd game_server && npm i && cd apps/implevit && npm i && git clone https://github.com/slavikse/implevit.git app && cd app && npm i && npm run build && cd ~/game_server && npx pm2 kill && npx pm2 start ./config/pm2.json
+cd ~/game_server && npx pm2 kill && cd .. && rm -rf game_server && git clone https://github.com/slavikse/game_server.git && cd game_server && npm i && cd apps/implevit && npm i && git clone https://github.com/slavikse/implevit.git app && cd app && npm i && npm run build && cd ~/game_server && npx pm2 start ./config/pm2.json
 ```
 
 ### Обновление Game Server
 ```
-cd ~ &&
+cd ~/game_server &&
+npx pm2 kill &&
+cd .. &&
 rm -rf game_server &&
 git clone https://github.com/slavikse/game_server.git &&
 cd game_server &&
@@ -32,7 +34,6 @@ npm run build
 ### Запуск всех приложений
 ```
 cd ~/game_server &&
-npx pm2 kill &&
 npx pm2 start ./config/pm2.json
 ```
 
