@@ -9,7 +9,6 @@ function update(socket, payload) {
   socket.payload = {
     ...socket.payload,
     ...payload,
-    tick: socket.nextTick(),
   };
 }
 

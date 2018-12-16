@@ -1,27 +1,15 @@
-// Получение (зависит от клиента) / Отправка (гарантирует сервер) обновлённой клиентской информации.
+const exactUpdate = require('./exactUpdate');
+
 function getUpdates(io) {
   return Object.values(io.sockets.connected).reduce((updates, socket) => {
-    const updatedKeys = Object.keys(socket.isUpdates);
+    const wasUpdate = exactUpdate({ updates, socket });
 
-    updatedKeys.forEach((key) => {
-      if (socket.isUpdates[key]) {
-        socket.isUpdates[key] = false;
-
-        mergeWithUpdated({ updates, socket, key });
-      }
-    });
+    if (wasUpdate) {
+      updates[socket.id].tick = socket.nextTick();
+    }
 
     return updates;
   }, {});
-}
-
-// Точечный (по ключу) сбор состояния обновлённой клиентской информации.
-function mergeWithUpdated({ updates, socket, key }) {
-  updates[socket.id] = {
-    ...updates[socket.id],
-    [key]: socket.payload[key],
-    tick: socket.nextTick(),
-  };
 }
 
 module.exports = getUpdates;
