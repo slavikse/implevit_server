@@ -1,3 +1,4 @@
+const configure = require('./configure');
 const publisher = require('./publisher');
 const subscriber = require('./subscriber');
 const gameLoop = require('./gameLoop');
@@ -6,6 +7,7 @@ const gameLoop = require('./gameLoop');
 // io.sockets.connected = { id: socket }
 function connection(io) {
   io.on('connection', (socket) => {
+    configure(socket);
     publisher(io, socket);
     subscriber(socket);
   });

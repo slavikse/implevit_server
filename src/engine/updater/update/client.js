@@ -1,5 +1,3 @@
-const uuid = require('uuid/v1');
-
 // Обновление клиентской информации с пометкой об обновлении.
 function client(socket, payload) {
   update(socket, payload);
@@ -11,7 +9,7 @@ function update(socket, payload) {
   socket.payload = {
     ...socket.payload,
     ...payload,
-    tick: uuid(),
+    tick: socket.nextTick(),
   };
 }
 

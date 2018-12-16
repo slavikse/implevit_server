@@ -1,5 +1,3 @@
-const uuid = require('uuid/v1');
-
 // Получение (зависит от клиента) / Отправка (гарантирует сервер) обновлённой клиентской информации.
 function getUpdates(io) {
   return Object.values(io.sockets.connected).reduce((updates, socket) => {
@@ -22,7 +20,7 @@ function mergeWithUpdated({ updates, socket, key }) {
   updates[socket.id] = {
     ...updates[socket.id],
     [key]: socket.payload[key],
-    tick: uuid(),
+    tick: socket.nextTick(),
   };
 }
 
