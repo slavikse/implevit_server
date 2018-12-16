@@ -63,5 +63,5 @@
   });
   ```
 
-### Лицензия [MIT](http://opensource.org/licenses/MIT)
+### Лицензия [MIT](LICENSE)
 Copyright (c) 2018-present, Лебедев Вячеслав

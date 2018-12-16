@@ -6,8 +6,7 @@ function client(socket, payload) {
   markUpdated(socket, payload);
 }
 
-// Соединение содержит полную информацию от подключённого клиента,
-// периодически перезаписывая её на новую.
+// Соединение содержит полную актуальную информацию подключённого клиента.
 function update(socket, payload) {
   socket.payload = {
     ...socket.payload,
