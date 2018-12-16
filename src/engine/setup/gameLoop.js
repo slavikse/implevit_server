@@ -2,7 +2,7 @@ const { distribution } = require('../updater');
 const { performance } = require('../helpers');
 
 // Частота обновления сервера.
-const frequency = 1000 / 60;
+const frequency = 1000 / (2 ** 6);
 
 function gameLoop(io) {
   setTimeout(gameLoop, frequency, io);
