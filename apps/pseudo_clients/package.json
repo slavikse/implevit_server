@@ -9,7 +9,6 @@
     "serve": "node ."
   },
   "dependencies": {
-    "amqplib": "^0.5.3",
     "puppeteer": "^1.11.0"
   }
 }
