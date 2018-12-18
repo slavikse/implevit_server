@@ -1,10 +1,7 @@
-const createServer = require('./createServer');
+const { createServer, apps } = require('./configure');
 const { connection } = require('./engine');
 
 const io = createServer();
 connection(io);
 
-// const isDevelopment = app.env === 'development';
-
-// Состояние вне замыкания общее для всех подключённых - каждый может его изменить.
-// Переменные использовать только внутри замыкания, иначе состояние выйдет из под контроля.
+apps();
