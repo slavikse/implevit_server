@@ -1,4 +1,4 @@
-const { client } = require('../updater');
+const { clientUpdate } = require('../updates');
 const { getClients } = require('./helpers');
 
 // Стратегия при подключении клиента:
@@ -12,14 +12,14 @@ function publisher(io, socket) {
   });
 
   socket.once('connected', (payload) => {
-    client(socket, payload);
-    updates(io);
+    clientUpdate(socket, payload);
+    sendClients(io);
   });
 }
 
-function updates(io) {
+function sendClients(io) {
   const clients = getClients(io);
-  io.emit('updates', clients);
+  io.emit('clients', clients);
 }
 
 module.exports = publisher;

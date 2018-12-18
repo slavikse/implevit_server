@@ -1,4 +1,4 @@
 const createServer = require('./createServer');
-const apps = require('./apps');
+const appsLaunch = require('./appsLaunch');
 
-module.exports = { createServer, apps };
+module.exports = { createServer, appsLaunch };

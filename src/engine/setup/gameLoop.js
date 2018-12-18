@@ -1,4 +1,4 @@
-const { distribution } = require('../updater');
+const { distribution } = require('../updates');
 const { performance } = require('../helpers');
 
 // Частота обновления сервера.

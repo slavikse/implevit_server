@@ -1,8 +1,8 @@
-const { update } = require('../updater');
+const { clientUpdate } = require('../updates');
 
 function subscriber(socket) {
-  socket.on('update', (data) => {
-    update(socket, data);
+  socket.on('clientUpdate', (payload) => {
+    clientUpdate(socket, payload);
   });
 
   socket.on('disconnect', () => {

@@ -4,10 +4,10 @@ const paths = [
   'apps/implevit',
 ];
 
-function apps() {
+function appsLaunch() {
   paths.forEach((path) => {
     fork(path);
   });
 }
 
-module.exports = apps;
+module.exports = appsLaunch;
