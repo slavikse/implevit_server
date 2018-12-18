@@ -1,4 +1,4 @@
-const { getClients } = require('./helpers');
+const { getClients } = require('./clients');
 
 function distribution(io) {
   const clients = getClients(io);

@@ -2,6 +2,7 @@ const { fork } = require('child_process');
 
 const paths = [
   'apps/implevit',
+  'apps/implevit_enemy',
 ];
 
 function appsLaunch() {

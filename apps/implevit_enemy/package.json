@@ -1,0 +1,11 @@
+{
+  "name": "implevit_mobs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "slavikse <gslavikse@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "node ."
+  }
+}
