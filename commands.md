@@ -48,7 +48,7 @@ npm run build
 ### Запуск приложений
 ```
 cd ~/game_server &&
-NODE_ENV=production nohup node --use_strict src &
+NODE_ENV=production nohup node --use_strict src > nohup.out 2> nohup.err < /dev/null &
 ```
 
 ### Статистика
