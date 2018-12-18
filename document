@@ -1,16 +1,5 @@
 Для общения с разными приложениями, можно использовать концепцию io комнат.
 
-Pub-Sub
-// main.js
-const { fork } = require('child_process');
-fork('slave');
-process.send('main / hello');
-process.on('message', (message) => {
-  console.log('main / message', message);
-});
-
-// slave.js
-process.on('message', (message) => {
-  console.log('test / message', message);
-  process.send('test / hi');
-});
+Cluster
+https://nodejs.org/api/cluster.html
+https://medium.com/@NorbertdeLangen/communicating-between-nodejs-processes-4e68be42b917

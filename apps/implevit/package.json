@@ -1,7 +1,7 @@
 {
   "name": "implevit",
   "version": "1.0.0",
-  "description": "Сборочный пункт игры.",
+  "description": "Сборочный пункт игры. Исходники на github. Собирает удалённый сервер.",
   "main": "index.js",
   "author": "slavikse <gslavikse@gmail.com>",
   "license": "MIT",
