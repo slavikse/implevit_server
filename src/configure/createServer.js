@@ -1,6 +1,6 @@
 const http = require('http');
 const socket = require('socket.io');
-const listen = require('./listen');
+const setup = require('./setup');
 
 const config = {
   transports: ['websocket'],
@@ -12,7 +12,7 @@ function createServer() {
   const server = http.createServer();
   const io = socket(server, config);
 
-  listen(server);
+  setup(server);
 
   return io;
 }
