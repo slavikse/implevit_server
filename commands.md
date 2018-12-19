@@ -54,6 +54,7 @@ NODE_ENV=production nohup node --use_strict src > nohup.out 2> nohup.err < /dev/
 ### Статистика
 ```
 htop
+cat logs/performance.txt
 ```
 
 > Остановка всех Node процессов:  
