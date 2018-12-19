@@ -13,13 +13,18 @@ function publisher(io, socket) {
 
   socket.once('connected', (payload) => {
     clientUpdate(socket, payload);
-    sendClients(io);
+    sendClients(io, socket);
   });
 }
 
-function sendClients(io) {
+// При подключении информация подключённого так же будет отправлена подключённому - gameLoop.
+function sendClients(io, socket) {
   const clients = getClients(io);
-  io.emit('clients', clients);
+  delete clients[socket.id];
+
+  if (Object.keys(clients).length > 0) {
+    io.emit('clients', clients);
+  }
 }
 
 module.exports = publisher;

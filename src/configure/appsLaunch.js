@@ -2,7 +2,7 @@ const { fork } = require('child_process');
 
 const paths = [
   'apps/implevit',
-  'apps/implevitEnemies',
+  // 'apps/implevitEnemies',
 ];
 
 // Тип события - соответствует названию приложения.

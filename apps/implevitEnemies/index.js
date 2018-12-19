@@ -1,6 +1,6 @@
 const enemies = require('./enemies');
 
-const frequency = 1000 / 60;
+const frequency = 1000 / 30;
 // С запасом, чтобы объект полностью (если повезёт) скрылся из виду.
 const magicSize = 100;
 const magicMaxHeight = 1500;
@@ -15,7 +15,6 @@ function loop() {
 }
 
 function animate() {
-  // Осторожно! Мутации проникают в хранилище, которое слушает компонент Player.
   const payload = enemies.map(({ id, position, scale }) => {
     scaling(scale);
 
