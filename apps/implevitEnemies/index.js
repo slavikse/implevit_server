@@ -1,3 +1,5 @@
+const io = require('socket.io-client');
+
 const enemies = require('./enemies');
 
 const frequency = 1000 / 30;
@@ -5,26 +7,46 @@ const frequency = 1000 / 30;
 const magicSize = 100;
 const magicMaxHeight = 1500;
 
-loop();
+const connection = io.connect('http://localhost:3000', { transports: ['websocket'] });
+
+connection.once('connected', ({ clientId }) => {
+  connection.emit('connected', { type: 'enemies', id: clientId });
+
+  loop();
+});
+
+// todo для рассчётов пересечений в форкнутом процессе.
+//   клиент будет слушать спец канал, по которому будет отправлено, с кем он пересёкся.
+//   логика общения между процессами
+// const child = fork(path);
+// child.on('message', ({ type, payload }) => {
+//   selector({ io, type, payload });
+// });
+
+// process.send({ type: 'implevitEnemies', payload });
+
+// connection.on('clients', (clients) => {
+//   console.log('clients', clients);
+// });
 
 function loop() {
   setTimeout(loop, frequency);
 
-  animate();
-  send();
+  // можно вычищать значения, которые не требуются на клиенте.
+  const payload = animate();
+
+  send(payload);
 }
 
 function animate() {
-  const payload = enemies.map(({ id, position, scale }) => {
+  return enemies.map(({ id, position, scale }) => {
     scaling(scale);
 
     movement(position);
     screening(position);
 
-    return { id, position, scale };
+    return { type: 'enemies', id, position, scale };
   });
-
-  send(payload);
 }
 
 function scaling(scale) {
@@ -49,8 +71,5 @@ function screening(position) {
 }
 
 function send(payload) {
-  // Почему то может быть null.
-  if (payload) {
-    process.send({ type: 'implevitEnemies', payload });
-  }
+  connection.emit('clientUpdate', payload);
 }

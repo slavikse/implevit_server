@@ -6,7 +6,7 @@ const enemies = [
       top: {
         default: -120,
         value: -120,
-        step: 1.1,
+        step: 1.6,
       },
       left: {
         default: 10,
@@ -19,7 +19,7 @@ const enemies = [
       // max - увеличение | min - уменьшение.
       type: 'max',
       value: 0.9,
-      step: 0.01,
+      step: 0.1,
       min: 0.6,
       max: 1.5,
     },
@@ -31,7 +31,7 @@ const enemies = [
       top: {
         default: -150,
         value: -150,
-        step: 0.2,
+        step: 1.2,
       },
       left: {
         default: 250,
@@ -43,7 +43,7 @@ const enemies = [
     scale: {
       type: 'max',
       value: 0.7,
-      step: 0.03,
+      step: 0.2,
       min: 0.8,
       max: 1.1,
     },
@@ -55,7 +55,7 @@ const enemies = [
       top: {
         default: -200,
         value: -200,
-        step: 0.7,
+        step: 1,
       },
       left: {
         default: 100,
@@ -67,7 +67,7 @@ const enemies = [
     scale: {
       type: 'min',
       value: 0.8,
-      step: 0.01,
+      step: 0.05,
       min: 0.7,
       max: 1.8,
     },
@@ -79,7 +79,7 @@ const enemies = [
       top: {
         default: -200,
         value: -200,
-        step: 0.3,
+        step: 0.8,
       },
       left: {
         default: 30,
@@ -91,7 +91,7 @@ const enemies = [
     scale: {
       type: 'min',
       value: 0.7,
-      step: 0.08,
+      step: 0.15,
       min: 0.9,
       max: 1.4,
     },
@@ -103,7 +103,7 @@ const enemies = [
       top: {
         default: -120,
         value: -120,
-        step: 0.6,
+        step: 2.2,
       },
       left: {
         default: 350,
@@ -115,7 +115,7 @@ const enemies = [
     scale: {
       type: 'min',
       value: 0.8,
-      step: 0.04,
+      step: 0.18,
       min: 0.3,
       max: 2.4,
     },
@@ -127,7 +127,7 @@ const enemies = [
       top: {
         default: -300,
         value: -300,
-        step: 0.9,
+        step: 1.9,
       },
       left: {
         default: 80,
@@ -139,7 +139,7 @@ const enemies = [
     scale: {
       type: 'min',
       value: 0.7,
-      step: 0.03,
+      step: 0.2,
       min: 0.4,
       max: 1.9,
     },
