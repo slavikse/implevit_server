@@ -2,6 +2,8 @@ const io = require('socket.io-client');
 
 const enemies = require('./enemies');
 
+// todo Общение через child.on 'message' ???
+
 const frequency = 1000 / 30;
 // С запасом, чтобы объект полностью (если повезёт) скрылся из виду.
 const magicSize = 100;

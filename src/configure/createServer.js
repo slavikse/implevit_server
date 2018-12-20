@@ -6,7 +6,7 @@ const config = {
   transports: ['websocket'],
   serveClient: false,
   cookie: false,
-  pingInterval: 500,
+  pingInterval: 100,
 };
 
 function createServer() {

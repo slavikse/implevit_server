@@ -1,5 +1,5 @@
-Для общения с разными приложениями, можно использовать концепцию io комнат.
-
 Cluster
 https://nodejs.org/api/cluster.html
 https://medium.com/@NorbertdeLangen/communicating-between-nodejs-processes-4e68be42b917
+
+type=client|enemy в сообщениях наверно можно заменить на "комнаты".
