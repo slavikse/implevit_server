@@ -1,5 +1,5 @@
 function distribution(socket, payload) {
-  socket.volatile.broadcast.emit('client', {
+  socket.broadcast.emit('client', {
     [socket.id]: payload,
   });
 }
