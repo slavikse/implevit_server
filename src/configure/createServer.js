@@ -5,8 +5,8 @@ const setup = require('./setup');
 const config = {
   transports: ['websocket'],
   serveClient: false,
-  cookie: false,
   pingInterval: 400,
+  cookie: false,
 };
 
 function createServer() {

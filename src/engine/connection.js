@@ -2,11 +2,13 @@ const configure = require('./configure');
 const subscriber = require('./subscriber');
 
 // Структура хранения подключённых клиентов:
-// io.sockets.connected = { id: socket }
+// io.connected = { id: socket }
 function connection(io) {
+  const nsp = io.of('/clients');
+
   // Состояние вне замыкания общее для всех подключённых.
-  io.on('connection', (socket) => {
-    configure(io, socket);
+  nsp.on('connection', (socket) => {
+    configure(nsp, socket);
     subscriber(socket);
   });
 }
