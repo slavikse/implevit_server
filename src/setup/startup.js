@@ -1,6 +1,6 @@
 const port = 3000;
 
-function setup(server) {
+function startup(server) {
   process.on('uncaughtException', (err) => {
     console.error('uncaughtException', err);
   });
@@ -16,4 +16,4 @@ function setup(server) {
   });
 }
 
-module.exports = setup;
+module.exports = startup;
