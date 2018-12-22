@@ -1,4 +1,4 @@
-function distribution(socket) {
+function broadcastReceived(socket) {
   socket.once('connected', (payload) => {
     socket.payload = payload;
 
@@ -8,4 +8,4 @@ function distribution(socket) {
   });
 }
 
-module.exports = distribution;
+module.exports = broadcastReceived;

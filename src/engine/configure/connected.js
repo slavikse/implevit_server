@@ -1,13 +1,9 @@
-const getClients = require('./getClients');
+const sendConnected = require('./sendConnected');
+const broadcastReceived = require('./broadcastReceived');
 
 function connected(io, socket) {
-  const clients = getClients(io);
-  delete clients[socket.id];
-
-  socket.emit('connected', {
-    clientId: socket.id,
-    clients,
-  });
+  sendConnected(io, socket);
+  broadcastReceived(socket);
 }
 
 module.exports = connected;

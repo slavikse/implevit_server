@@ -5,7 +5,6 @@ const paths = [
   // 'apps/implevitEnemies',
 ];
 
-// Тип события - соответствует названию приложения.
 function appsLaunch() {
   paths.forEach(path => fork(path));
 }

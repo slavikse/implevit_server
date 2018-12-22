@@ -1,7 +1,7 @@
 {
   "name": "game_server",
-  "version": "0.13.2",
-  "description": "Сервер для обмена информацией между клиентами.",
+  "version": "0.13.3",
+  "description": "Игровой сервер общего назначения - обмен информацией между клиентами.",
   "main": "./src",
   "scripts": {
     "serve": "nodemon --use-strict src"

@@ -1,9 +1,9 @@
 // Соединение содержит полную информацию подключённого клиента.
-function mergeUpdated(socket, payload) {
+function mergeWithUpdated(socket, payload) {
   socket.payload = {
     ...socket.payload,
     ...payload,
   };
 }
 
-module.exports = mergeUpdated;
+module.exports = mergeWithUpdated;

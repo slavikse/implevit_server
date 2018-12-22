@@ -1,4 +1,4 @@
-function disconnect(socket) {
+function disconnected(socket) {
   socket.on('disconnect', () => {
     socket.broadcast.emit('disconnected', {
       clientId: socket.id,
@@ -6,4 +6,4 @@ function disconnect(socket) {
   });
 }
 
-module.exports = disconnect;
+module.exports = disconnected;

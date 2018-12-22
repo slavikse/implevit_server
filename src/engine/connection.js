@@ -1,5 +1,5 @@
 const configure = require('./configure');
-const subscriber = require('./subscriber');
+const clientUpdate = require('./clientUpdate');
 
 // Структура хранения подключённых клиентов:
 // io.connected = { id: socket }
@@ -9,7 +9,7 @@ function connection(io) {
   // Состояние вне замыкания общее для всех подключённых.
   nsp.on('connection', (socket) => {
     configure(nsp, socket);
-    subscriber(socket);
+    clientUpdate(socket);
   });
 }
 
