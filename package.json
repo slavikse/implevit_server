@@ -1,6 +1,6 @@
 {
   "name": "game_server",
-  "version": "0.13.3",
+  "version": "0.14.0",
   "description": "Игровой сервер общего назначения - обмен информацией между клиентами.",
   "main": "./src",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@types/socket.io": "^2.1.2",
-    "eslint": "^5.10.0",
+    "eslint": "^5.11.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "nodemon": "^1.18.9"

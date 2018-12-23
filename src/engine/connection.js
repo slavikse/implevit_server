@@ -1,14 +1,15 @@
 const configure = require('./configure');
 const clientUpdate = require('./clientUpdate');
 
-// Структура хранения подключённых клиентов:
-// io.connected = { id: socket }
-function connection(io) {
-  const nsp = io.of('/clients');
+// Приложения в /apps имеют доступ ко всем подключённым.
+// Структура хранения подключённых клиентов к каналу:
+// nsp.connected = { id: socket }
+function connection({ io, channel }) {
+  const nsp = io.of(channel);
 
   // Состояние вне замыкания общее для всех подключённых.
   nsp.on('connection', (socket) => {
-    configure(nsp, socket);
+    configure({ io: nsp, socket });
     clientUpdate(socket);
   });
 }

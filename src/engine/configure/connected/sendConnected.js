@@ -1,6 +1,6 @@
-const { getClients } = require('./helpers');
+const { getClients } = require('./utils');
 
-function sendConnected(io, socket) {
+function sendConnected({ io, socket }) {
   const clients = getClients(io);
   delete clients[socket.id];
 

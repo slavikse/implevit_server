@@ -13,7 +13,9 @@
 ## Документация
 * Подключение к клиентскому каналу:
   ```js
-  connection = io.connect('http://${URI}/clients', { transports: ['websocket'] });
+  connection = io.connect('http://${URI}/clients', {
+    transports: ['websocket'],
+  });
   ```
 
 * Получение идентификатора, информации о всех подключённых и отправка инициализирующей информации:
