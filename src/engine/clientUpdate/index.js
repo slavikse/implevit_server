@@ -2,7 +2,7 @@ const mergeWithUpdated = require('./mergeWithUpdated');
 const broadcastUpdates = require('./broadcastUpdates');
 
 function clientUpdate(socket) {
-  socket.on('client', (payload) => {
+  socket.on('clientUpdate', (payload) => {
     mergeWithUpdated(socket, payload);
     broadcastUpdates(socket, payload);
   });

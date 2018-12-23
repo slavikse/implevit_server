@@ -1,5 +1,5 @@
 function broadcastUpdates(socket, payload) {
-  socket.broadcast.emit('client', {
+  socket.broadcast.emit('clientUpdate', {
     [socket.id]: payload,
   });
 }
