@@ -1,35 +1,28 @@
 const io = require('socket.io-client');
-
 const enemies = require('./enemies');
 
-// todo Общение через child.on 'message' ???
+const serverUri = 'http://localhost:3000/enemies';
+const frequency = 1000 / 24;
 
-const frequency = 1000 / 30;
 // С запасом, чтобы объект полностью (если повезёт) скрылся из виду.
 const magicSize = 100;
 const magicMaxHeight = 1500;
 
-const connection = io.connect('http://localhost:3000', { transports: ['websocket'] });
+const socket = io(`${serverUri}/enemies`, { transports: ['websocket'] });
 
-connection.once('connected', ({ clientId }) => {
-  connection.emit('connected', { type: 'enemies', id: clientId });
-
-  loop();
+// Состояние вне замыкания общее для всех подключённых.
+socket.on('connection', () => {
+  console.log('connection');
+  // configure(nsp, socket);
+  // clientUpdate(socket);
 });
+// socket.once('connected', ({ clientId /* , clients */ }) => {
+//   socket.emit('connected', { id: clientId });
+//   loop();
+// });
 
 // todo для рассчётов пересечений в форкнутом процессе.
 //   клиент будет слушать спец канал, по которому будет отправлено, с кем он пересёкся.
-//   логика общения между процессами
-// const child = fork(path);
-// child.on('message', ({ type, payload }) => {
-//   selector({ io, type, payload });
-// });
-
-// process.send({ type: 'implevitEnemies', payload });
-
-// connection.on('clients', (clients) => {
-//   console.log('clients', clients);
-// });
 
 function loop() {
   setTimeout(loop, frequency);
@@ -47,7 +40,7 @@ function animate() {
     movement(position);
     screening(position);
 
-    return { type: 'enemies', id, position, scale };
+    return { id, position, scale };
   });
 }
 
@@ -73,5 +66,5 @@ function screening(position) {
 }
 
 function send(payload) {
-  connection.emit('clientUpdate', payload);
+  socket.emit('enemy', payload);
 }
