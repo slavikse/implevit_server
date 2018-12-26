@@ -1,12 +1,12 @@
 const { fork } = require('child_process');
 
 const independent = [
-  'apps/implevit',
+  'src/apps/implevit',
 ];
 
 const dependent = [
   {
-    path: 'apps/implevitEnemies',
+    path: 'src/apps/implevitEnemies',
     ownChannel: 'implevitEnemies',
     subscribeChannel: 'clients',
   },
