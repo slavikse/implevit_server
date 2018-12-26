@@ -37,7 +37,7 @@ npm i &&
 
 ### Сборка игры Implevit
 ```
-cd apps/implevit &&
+cd src/apps/implevit &&
 npm i &&
 git clone https://github.com/slavikse/implevit.git app &&
 cd app &&
