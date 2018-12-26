@@ -1,6 +1,6 @@
 const enemies = require('./enemies');
 
-const frequency = 1000 / 10;
+const frequency = 1000 / 30;
 
 // С запасом, чтобы объект полностью (если повезёт) скрылся из виду.
 const magicSize = 100;
