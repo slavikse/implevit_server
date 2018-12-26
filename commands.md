@@ -14,7 +14,7 @@ git clone https://github.com/slavikse/game_server.git &&
 cd game_server &&
 npm i &&
 
-cd apps/implevit &&
+cd src/apps/implevit &&
 npm i &&
 git clone https://github.com/slavikse/implevit.git app &&
 cd app &&
