@@ -1,12 +1,15 @@
 const { fork } = require('child_process');
+// todo del
+const engine = require('./implevitEnemies/engine');
 
-const independent = [
-  'src/apps/implevit',
+const independents = [
+  'implevit',
 ];
 
-const dependent = [
+const dependents = [
+  // todo del
   {
-    path: 'src/apps/implevitEnemies',
+    path: 'index',
     ownChannel: 'implevitEnemies',
     subscribeChannel: 'clients',
   },
@@ -26,44 +29,13 @@ function launchGameServer({ io, connection }) {
 }
 
 function launchIndependent() {
-  independent.forEach(path => fork(path));
+  independents.forEach(path => fork(`${__dirname}/${path}`));
 }
 
 function launchDependent({ io, connection }) {
-  // todo на сейчас очень специфично исключительно для implevitEnemies
-  dependent.forEach(({ path, ownChannel, subscribeChannel }) => {
-    const child = fork(path);
-
-    const owner = io.of(ownChannel);
-    const subscriber = io.of(subscribeChannel);
-
-    setInterval(() => {
-      owner.emit('client', 'test');
-    }, 2000);
-
-    // todo
-    // Сервер прослушивает всех игроков и отправляет им уведомления, но уже со своего канала.
-    subscriber.on('connection', (socket) => {
-      socket.once('connected', (payload) => {
-        console.log('payload', payload);
-      });
-
-      socket.on('client', (client) => {
-        console.log('client', socket.id, client);
-      });
-
-      socket.on('disconnect', () => {
-        console.log('disconnect', socket.id);
-      });
-    });
-
-    // child.on('message', (m) => { console.log('parent', m); });
-    // child.send('Hi');
-
-    // todo получать обновления.
-    // todo исключать отключившихся и реагировать на подключившихся.
-    // const nsp = io.nsps['/clients'];
-    // const nsp = io.nsps['/implevitEnemies'];
+  dependents.forEach((dependent) => {
+    // todo del
+    engine({ io, dependent });
   });
 }
 
