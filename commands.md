@@ -35,7 +35,7 @@ Description=Game_Server
 ExecStart=/usr/bin/node --use-strict /opt/game_server/src/index.js
 Environment=NODE_ENV=production
 Restart=always
-RestartSec=10
+RestartSec=0
 SyslogIdentifier=Game_Server
 StandardOutput=syslog
 StandardError=syslog
