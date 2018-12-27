@@ -25,6 +25,19 @@ function engine({ io, dependent: { path, ownChannel, subscribeChannel } }) {
   subscriber.on('connection', (socket) => {
     socket.once('connected', (payload) => {
       console.log('payload', payload);
+
+      (function () {
+        // 'use strict';
+
+        try {
+          var obj = Object.freeze({});
+          obj.foo = 1; // will throw
+        } catch (e) {
+          console.log('ERROR:', e);
+          return;
+        }
+        console.log('Nothing thrown');
+      }());
     });
 
     socket.on('clientUpdate', () => {});
