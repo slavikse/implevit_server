@@ -7,6 +7,7 @@ ssh root@5.63.159.2
 
 ### Обновление Game Server
 ```
+systemctl stop nodeserver.service &&
 cd /opt &&
 rm -rf game_server &&
 git clone https://github.com/slavikse/game_server.git &&
@@ -46,7 +47,6 @@ WantedBy=multi-user.target" > /etc/systemd/system/nodeserver.service
 
 ### Запуск systemd
 ```
-systemctl stop nodeserver.service &&
 systemctl daemon-reload &&
 systemctl enable nodeserver.service &&
 systemctl start nodeserver.service &&
