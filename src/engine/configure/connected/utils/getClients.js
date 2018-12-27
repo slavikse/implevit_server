@@ -1,4 +1,3 @@
-// Получение полной информации о всех подключённых.
 function getClients(io) {
   return Object.values(io.connected)
     .reduce((clients, { id, payload }) => {

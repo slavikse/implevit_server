@@ -1,7 +1,6 @@
 const configure = require('./configure');
 const clientUpdate = require('./clientUpdate');
 
-// Приложения в /apps имеют доступ ко всем подключённым.
 // Структура хранения подключённых клиентов к каналу:
 // nsp.connected = { id: socket }
 function connection({ io, channel }) {
