@@ -32,7 +32,7 @@ Description=Game_Server
 # Requires=After=mysql.service
 
 [Service]
-ExecStart=/usr/bin/node --use-strict /opt/game_server/src/index.js
+ExecStart=/usr/bin/node /opt/game_server/src/index.js
 Environment=NODE_ENV=production
 Restart=always
 RestartSec=10
