@@ -7,7 +7,7 @@
     "serve": "nodemon --use-strict src"
   },
   "engines": {
-    "node": "10.14.2",
+    "node": "10.15.0",
     "npm": "6.5.0"
   },
   "repository": {
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/node": "^10.12.18",
     "@types/socket.io": "^2.1.2",
-    "eslint": "^5.11.0",
+    "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "nodemon": "^1.18.9"

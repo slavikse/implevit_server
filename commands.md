@@ -27,13 +27,14 @@ npm run build
 
 ### Настройка systemd
 ```
-echo "[Unit]
+echo "
+[Unit]
 Description=Game_Server
 # Requires the mysql service to run first
 # Requires=After=mysql.service
 
 [Service]
-ExecStart=/usr/bin/node --use-strict /opt/game_server/src/index.js
+ExecStart=/usr/bin/node --use-strict /opt/game_server/src/
 Environment=NODE_ENV=production
 Restart=always
 RestartSec=0
@@ -42,7 +43,8 @@ StandardOutput=syslog
 StandardError=syslog
 
 [Install]
-WantedBy=multi-user.target" > /etc/systemd/system/nodeserver.service
+WantedBy=multi-user.target
+" > /etc/systemd/system/nodeserver.service
 ```
 
 ### Запуск systemd
