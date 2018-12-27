@@ -24,26 +24,13 @@ function engine({ io, dependent: { path, ownChannel, subscribeChannel } }) {
   // Сервер прослушивает всех игроков и отправляет им уведомления, но уже со своего канала.
   subscriber.on('connection', (socket) => {
     socket.once('connected', (payload) => {
-      console.log('payload', payload);
-
-      (function () {
-        // 'use strict';
-
-        try {
-          var obj = Object.freeze({});
-          obj.foo = 1; // will throw
-        } catch (e) {
-          console.log('ERROR:', e);
-          return;
-        }
-        console.log('Nothing thrown');
-      }());
+      // console.log('payload', payload);
     });
 
     socket.on('clientUpdate', () => {});
 
     socket.on('disconnect', () => {
-      console.log('disconnect', socket.id);
+      // console.log('disconnect', socket.id);
     });
   });
 
