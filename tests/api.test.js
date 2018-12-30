@@ -44,6 +44,25 @@ describe('Проверка подписок на события клиентск
     });
   });
 
+  test('Получено обновление информации клиента.', (done) => {
+    socket.once('connected', () => {
+      const socket2 = io.connect(`${uri}/clients`, opts);
+      let clientId2;
+
+      socket2.once('connected', ({ clientId }) => {
+        clientId2 = clientId;
+        socket2.emit('clientUpdate', { id: 2 });
+      });
+
+      socket.on('clientUpdate', (client) => {
+        expect(client[clientId2].id).toBe(2);
+
+        socket2.close();
+        done();
+      });
+    });
+  });
+
   test('Все подключённые получили идентификатор отключившегося.', (done) => {
     let clientId2;
 
