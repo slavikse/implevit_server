@@ -15,36 +15,41 @@
 ## Документация
 * Подключение к клиентскому каналу:
   ```js
-  connection = io.connect('http://${URI}/clients', {
-    transports: ['websocket'],
-  });
+  import io from 'socket.io-client';
+
+  const uri = 'http://localhost:3000';
+  const opts = { transports: ['websocket'] };
+
+  const socket = io.connect(`${uri}/clients`, opts);
   ```
 
 * Получение идентификатора, информации о всех подключённых и отправка инициализирующей информации:
   ```js
-  connection.once('connected', ({ clientId, clients }) => {
-    connection.emit('connected', { /* Инициализирующая информация клиента. */ });
+  socket.once('connected', ({ clientId, clients }) => {
+    socket.emit('connected', {
+      /* Инициализирующая информация клиента. */
+    });
   });
   ```
 
 * Подписка на обновления информации клиентов:
   ```js
-  connection.on('clientUpdate', (client) => { });
+  socket.on('clientUpdate', (client) => { });
   ```
 
 * Отправка клиентом обновлённой информации:
   ```js
-  connection.emit('clientUpdate', { });
+  socket.emit('clientUpdate', { });
   ```
 
 * Подписка на получение задержки соединения с сервером:
   ```js
-  connection.on('pong', (latency) => { });
+  socket.on('pong', (latency) => { });
   ```
 
 * Подписка на получение идентификатора отключившегося клиента:
   ```js
-  connection.on('disconnected', ({ clientId }) => { });
+  socket.on('disconnected', ({ clientId }) => { });
   ```
 
 ### License

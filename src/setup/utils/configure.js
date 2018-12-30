@@ -11,8 +11,9 @@ function configure(server) {
     });
   });
 
-  server.listen(port);
-  console.log(`Server Listen Port: ${port}`);
+  server.listen(port, () => {
+    console.log(`Server Listen Port: ${port}`);
+  });
 }
 
 module.exports = configure;

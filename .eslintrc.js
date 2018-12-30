@@ -5,6 +5,7 @@ module.exports = {
     browser: false,
     node: true,
     es6: true,
+    jest: true,
   },
 
   rules: {

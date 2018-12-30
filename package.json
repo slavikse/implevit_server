@@ -4,7 +4,8 @@
   "description": "Игровой сервер общего назначения - обмен информацией между клиентами.",
   "main": "./src",
   "scripts": {
-    "serve": "nodemon --use-strict src"
+    "serve": "nodemon --use-strict src --ignore tests",
+    "test": "jest --detectOpenHandles"
   },
   "engines": {
     "node": "10.15.0",
@@ -20,11 +21,14 @@
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.10",
     "@types/node": "^10.12.18",
     "@types/socket.io": "^2.1.2",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "nodemon": "^1.18.9"
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.9",
+    "socket.io-client": "^2.2.0"
   }
 }

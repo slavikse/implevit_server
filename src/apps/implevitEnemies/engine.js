@@ -54,7 +54,7 @@ function collisions(io, enemies, subscriber) {
     const player = val.payload;
 
     // todo проверка - данных может не быть.
-    if (player) {
+    if (player && player.position) {
       const { position: { top: y1, left: x1 }, scale: playerScale } = player;
 
       const intersections = enemies.map(({ id, position: { top, left }, scale }) => {
