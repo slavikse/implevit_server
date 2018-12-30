@@ -17,29 +17,29 @@ module.exports = {
   // cacheDirectory: "C:\\Users\\2C82~1\\AppData\\Local\\Temp\\jest",
 
   // Automatically clear mock calls and instances between every test
-  // clearMocks: true,
+  // clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
-  collectCoverage: true,
+  // collectCoverage: false,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: null,
+  // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
   // coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
+  //   "/node_modules/"
   // ],
 
   // A list of reporter names that Jest uses when writing coverage reports
-  coverageReporters: [
-    // "json",
-    // "text",
-    "lcov",
-    // "clover"
-  ],
+  // coverageReporters: [
+  //   "json",
+  //   "text",
+  //   "lcov",
+  //   "clover"
+  // ],
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: null,
@@ -67,6 +67,7 @@ module.exports = {
   // An array of file extensions your modules use
   // moduleFileExtensions: [
   //   "js",
+  //   "ts",
   //   "json",
   //   "jsx",
   //   "node"
@@ -158,7 +159,7 @@ module.exports = {
   // testURL: "http://localhost",
 
   // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
-  // timers: "fake",
+  // timers: "real",
 
   // A map from regular expressions to paths to transformers
   // transform: null,
@@ -172,11 +173,11 @@ module.exports = {
   // unmockedModulePathPatterns: undefined,
 
   // Indicates whether each individual test should be reported during the run
-  // verbose: null,
+  // verbose: false,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
 
   // Whether to use watchman for file crawling
-  // watchman: false,
+  // watchman: true,
 };

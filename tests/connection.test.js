@@ -3,32 +3,32 @@ const io = require('socket.io-client');
 const uri = 'http://localhost:3000';
 const opts = { transports: ['websocket'] };
 
-describe('Проверка подписок на события клиентского канала.', () => {
-  it('Получен клиентский идентификатор.', (done) => {
-    const socket = io.connect(`${uri}/clients`, opts);
+let socket;
 
+beforeEach(() => {
+  socket = io.connect(`${uri}/clients`, opts);
+});
+
+afterEach(() => {
+  socket.close();
+});
+
+describe('Проверка подписок на события клиентского канала.', () => {
+  test('Получен клиентский идентификатор.', (done) => {
     socket.once('connected', ({ clientId }) => {
       expect(/\/clients#.+/.test(clientId)).toBeTruthy();
-
-      socket.close();
       done();
     });
   });
 
-  it('На игровом сервере только подключившийся клиент.', (done) => {
-    const socket = io.connect(`${uri}/clients`, opts);
-
+  test('На игровом сервере только подключившийся клиент.', (done) => {
     socket.once('connected', ({ clients }) => {
       expect((Object.keys(clients).length)).toBe(0);
-
-      socket.close();
       done();
     });
   });
 
-  it('На игровом сервере два подключённых клиента с информацией.', (done) => {
-    const socket = io.connect(`${uri}/clients`, opts);
-
+  test('На игровом сервере два подключённых клиента с информацией.', (done) => {
     socket.once('connected', ({ clientId }) => {
       socket.emit('connected', { id: 1 });
 
@@ -38,15 +38,13 @@ describe('Проверка подписок на события клиентск
         expect((Object.keys(clients).length)).toBe(1);
         expect(clients[clientId]).toEqual({ id: 1 });
 
-        socket.close();
         socket2.close();
         done();
       });
     });
   });
 
-  it('Все подключённые получили идентификатор отключившегося.', (done) => {
-    const socket = io.connect(`${uri}/clients`, opts);
+  test('Все подключённые получили идентификатор отключившегося.', (done) => {
     let clientId2;
 
     socket.once('connected', () => {
@@ -60,8 +58,6 @@ describe('Проверка подписок на события клиентск
 
     socket.on('disconnected', ({ clientId }) => {
       expect(clientId === clientId2).toBeTruthy();
-
-      socket.close();
       done();
     });
   });
