@@ -61,14 +61,14 @@ ps -ef | grep index.js
 kill pid
 ```
 
+> Остановка всех Node процессов:  
+  windows: `taskkill /F /IM node.exe`  
+  linux: `pkill node`
+
 ### Статистика
 ```
 htop
 ```
-
-> Остановка всех Node процессов:  
-  windows: `taskkill /F /IM node.exe`  
-  linux: `pkill node`
 
 ### License
 [MIT](LICENSE) Copyright (c)  
