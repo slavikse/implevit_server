@@ -21,7 +21,7 @@
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.10",
+    "@types/jest": "^23.3.11",
     "@types/node": "^10.12.18",
     "@types/socket.io": "^2.1.2",
     "eslint": "^5.11.1",
