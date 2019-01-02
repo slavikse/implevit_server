@@ -3,16 +3,17 @@ const { fork } = require('child_process');
 const engine = require('./implevitEnemies/engine');
 
 const independents = [
-  'implevit',
+  'bagel',
+  // 'implevit',
 ];
 
 const dependents = [
   // todo del
-  {
-    path: 'index',
-    ownChannel: 'implevitEnemies',
-    subscribeChannel: 'clients',
-  },
+  // {
+  //   path: 'index',
+  //   ownChannel: 'implevitEnemies',
+  //   subscribeChannel: 'clients',
+  // },
 ];
 
 // Структура хранения подключённых клиентов к каналу:

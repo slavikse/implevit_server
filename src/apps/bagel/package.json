@@ -1,0 +1,12 @@
+{
+  "name": "bagel",
+  "version": "1.0.0",
+  "description": "Сборочный пункт игры. Исходники на github. Собирает удалённый сервер.",
+  "main": "index.js",
+  "author": "slavikse <gslavikse@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-static": "^5.0.0"
+  }
+}
