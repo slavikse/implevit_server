@@ -55,12 +55,6 @@ systemctl start nodeserver.service &&
 systemctl status nodeserver.service
 ```
 
-### Остановка systemd
-```
-ps -ef | grep index.js
-kill pid
-```
-
 > Остановка всех Node процессов:  
   windows: `taskkill /F /IM node.exe`  
   linux: `pkill node`
