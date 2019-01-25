@@ -21,10 +21,10 @@
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.11",
+    "@types/jest": "^23.3.12",
     "@types/node": "^10.12.18",
     "@types/socket.io": "^2.1.2",
-    "eslint": "^5.11.1",
+    "eslint": "^5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "jest": "^23.6.0",

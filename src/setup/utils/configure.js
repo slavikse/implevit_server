@@ -1,10 +1,6 @@
 const port = 3000;
 
 function configure(server) {
-  process.on('uncaughtException', (err) => {
-    console.error('uncaughtException', err);
-  });
-
   process.on('SIGTERM', () => {
     server.close(() => {
       process.exit(0);
