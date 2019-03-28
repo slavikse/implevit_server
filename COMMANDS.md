@@ -2,7 +2,7 @@
 
 ### Подключение
 ```
-ssh root@176.99.11.62
+ssh root@134.0.117.200
 ```
 
 ### Обновление Game Server
@@ -15,11 +15,11 @@ cd game_server &&
 npm i
 ```
 
-### Сборка Implevit
+### Сборка проекта
 ```
-cd src/apps/implevit &&
+cd src/apps/${APP_NAME} &&
 npm i &&
-git clone https://github.com/slavikse/implevit.git app &&
+git clone https://github.com/slavikse/${APP_NAME}.git app &&
 cd app &&
 npm i &&
 npm run build

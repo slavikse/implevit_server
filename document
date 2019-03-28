@@ -1,8 +1,0 @@
-// parent
-const child = fork(path);
-child.on('message', (m) => { console.log('parent', m); });
-child.send('Hi');
-
-// child
-process.on('message', (m) => { console.log('child', m); });
-if (process.send) { process.send('Hello'); }

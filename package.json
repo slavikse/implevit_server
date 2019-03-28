@@ -1,6 +1,6 @@
 {
   "name": "game_server",
-  "version": "0.14.7",
+  "version": "0.14.8",
   "description": "Игровой сервер общего назначения - обмен информацией между клиентами.",
   "main": "./src",
   "scripts": {
@@ -8,8 +8,8 @@
     "test": "jest --detectOpenHandles"
   },
   "engines": {
-    "node": "10.15.0",
-    "npm": "6.5.0"
+    "node": "10.15.3",
+    "npm": "6.4.1"
   },
   "repository": {
     "type": "git",
@@ -21,14 +21,14 @@
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.13",
-    "@types/node": "^10.12.18",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.12.0",
     "@types/socket.io": "^2.1.2",
-    "eslint": "^5.12.1",
+    "eslint": "^5.15.3",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.15.0",
-    "jest": "^23.6.0",
-    "nodemon": "^1.18.9",
+    "eslint-plugin-import": "^2.16.0",
+    "jest": "^24.5.0",
+    "nodemon": "^1.18.10",
     "socket.io-client": "^2.2.0"
   }
 }

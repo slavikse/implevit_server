@@ -1,12 +1,12 @@
 {
   "name": "implevit",
   "version": "1.0.0",
-  "description": "Сборочный пункт игры. Исходники на github. Собирает удалённый сервер.",
+  "description": "Хостинг для игры. Исходники на github.",
   "main": "index.js",
   "author": "slavikse <gslavikse@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "koa": "^2.6.2",
+    "koa": "^2.7.0",
     "koa-static": "^5.0.0"
   }
 }
