@@ -30,8 +30,6 @@ npm run build
 echo "
 [Unit]
 Description=Game_Server
-# Requires the mysql service to run first
-# Requires=After=mysql.service
 
 [Service]
 ExecStart=/usr/bin/node --use-strict /opt/game_server/src/
@@ -66,4 +64,4 @@ htop
 
 ### License
 [MIT](LICENSE) Copyright (c)  
-2018-present, Лебедев Вячеслав
+2019 - по настоящее время, Лебедев Вячеслав Викторович

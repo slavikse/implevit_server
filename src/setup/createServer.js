@@ -5,7 +5,7 @@ const { configure } = require('./utils');
 const config = {
   transports: ['websocket'],
   serveClient: false,
-  pingInterval: 400,
+  pingInterval: 500,
   cookie: false,
 };
 
