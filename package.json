@@ -1,6 +1,6 @@
 {
   "name": "game_server",
-  "version": "0.14.9",
+  "version": "0.14.10",
   "description": "Игровой сервер общего назначения - обмен информацией между клиентами.",
   "main": "./src",
   "scripts": {
@@ -21,14 +21,14 @@
     "socket.io": "^2.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.12",
-    "@types/node": "^11.13.8",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.2",
     "@types/socket.io": "^2.1.2",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.17.2",
-    "jest": "^24.7.1",
-    "nodemon": "^1.19.0",
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.1",
     "socket.io-client": "^2.2.0"
   }
 }
