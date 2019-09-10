@@ -8,8 +8,8 @@
     "test": "jest --detectOpenHandles"
   },
   "engines": {
-    "node": "10.15.3",
-    "npm": "6.9.0"
+    "node": "10.16.3",
+    "npm": "6.11.3"
   },
   "repository": {
     "type": "git",
@@ -22,13 +22,15 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
-    "@types/node": "^12.7.2",
+    "@types/node": "^12.7.4",
     "@types/socket.io": "^2.1.2",
-    "eslint": "^6.2.1",
+    "eslint": "^6.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
     "jest": "^24.9.0",
-    "nodemon": "^1.19.1",
+    "nodemon": "^1.19.2",
     "socket.io-client": "^2.2.0"
   }
 }
